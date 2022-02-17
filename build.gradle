@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+    id "org.openjfx.javafxplugin" version "0.0.11"
+    id 'org.beryx.jlink' version '2.24.1'
+}
+
+javafx {
+    version = "17"
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+group 'ru.gb.net.file.warehouse'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+mainClassName = 'ru.gb.net.file.warehouse.Main'
+
+jlink {
+    launcher {
+        name = 'hellofx'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
